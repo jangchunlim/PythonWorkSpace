@@ -19,3 +19,4 @@ totalPrice = float(sumPrice) + float(sumPrice)/10
 
 print(totalPrice)
 
+print("second commit")
