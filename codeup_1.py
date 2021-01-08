@@ -18,3 +18,4 @@ sumPrice = float(lowestPastPrice) + float(lowestJuicePrice)
 totalPrice = float(sumPrice) + float(sumPrice)/10
 
 print(totalPrice)
+
