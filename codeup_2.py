@@ -1,37 +1,27 @@
 
-
-def getDifference(current, target):
+def getMinCount(lowTemp, highTemp):
     count = 0
-    while current != target:
-        if target - current >= 5:
-            count += 1
-            current += 5
+    while lowTemp != highTemp:
+        count += 1
+        if highTemp - lowTemp >= 10:
+            lowTemp += 10
             continue
-        elif current - target >= 5:
-            count += 1
-            target += 5
+        elif highTemp - lowTemp >=8:
+            lowTemp += 10
             continue
-        if target > current:
-            count += 1
-            current += 1
+        elif highTemp - lowTemp >=3:
+            lowTemp += 5
             continue
-        elif current > target:
-            count += 1
-            target += 1
-            continue
+        elif highTemp - lowTemp >=1:
+            lowTemp += 1
+        else:
+            lowTemp -= 1
+
     return count
 
 currentTemperature, targetTemperature = map(int, input().split())
 
-print(getDifference(int(currentTemperature/10),int(targetTemperature/10))
-+getDifference(int(currentTemperature%10),int(targetTemperature%10)))
-
-
-# requirementCount += int(targetTemperucter / 10)
-# targetTemperucter = targetTemperucter % 10
-# requirementCount += int(targetTemperucter / 5)
-# targetTemperucter = targetTemperucter % 5
-# requirementCount += int(targetTemperucter)
-
-# 5이상이면 +5해주면서 카운트 업, 1이상이면 +1해주면서 카운트 업
-            
+if int(currentTemperature) > int(targetTemperature):
+    print(getMinCount(int(targetTemperature), int(currentTemperature)))
+else:
+    print(getMinCount(int(currentTemperature), int(targetTemperature)))
